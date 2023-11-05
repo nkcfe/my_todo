@@ -77,6 +77,8 @@ const WorkSpace = ({
 
   const nextTodoId = useRef(3);
 
+  const undoneTasks = context.filter((todo) => !todo.done);
+
   const AddTodo = (titleValue, textValue) => {
     const newTodo = {
       id: nextTodoId.current,
@@ -106,7 +108,7 @@ const WorkSpace = ({
       <Header>
         <TitleContainer>
           <span>{title}</span>
-          <LeftThingCircle>2</LeftThingCircle>
+          <LeftThingCircle>{undoneTasks.length}</LeftThingCircle>
         </TitleContainer>
         <AddBtnCircle onClick={handleModalOpen}>
           <IoAddOutline />
